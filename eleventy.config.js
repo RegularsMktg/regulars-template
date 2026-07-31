@@ -78,6 +78,9 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy({ admin: "admin" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
+  // Retire the template's own pages.dev deployment: every path 301s to the
+  // live marketing site. Client copies of this repo must delete src/_redirects.
+  eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
 
   // Rebuild when the config or content changes.
   eleventyConfig.addWatchTarget("content/");
